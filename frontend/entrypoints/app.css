@@ -4,21 +4,35 @@
 
 /* resolve conflict with Dawn base.css */
 /* Dawn uses flexbox for the grid */
-/* .grid {
+.grid {
   @apply flex;
-} */
+}
 
 /* thus we need to define the grid display */
-/* .tw-grid {
+.tw-grid {
   display: grid;
-} */
+}
 
 /* Dawn uses hidden: {display: none !important } */
-/* .tw-hidden {
+.tw-hidden {
   @apply hidden;
-} */
+}
 
-/* other theme styles */
+/* Cancel TW3 opinionated styles */
+@layer base {
+  svg,
+  video,
+  img {
+    @apply inline-block;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Other theme global styles */
+/* update this file to check hmr, also check class names on liquid files */
 /* header {
   @apply !bg-pink-100;
 } */
