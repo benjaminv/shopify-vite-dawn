@@ -1,0 +1,34 @@
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+node_modules
+
+# Editor directories and files
+.vscode/*
+.idea
+.vite
+
+# Shopify theme files
+theme/locales/*.json
+theme/templates/*.json
+theme/templates/customers/*.json
+theme/sections/*.json
+theme/config/settings_data.json
+theme/.shopify
+.shopify
+
+# Vite-shopify plugin files
+.vite
+vite-tag.liquid
+
+# Vite compiled or other build distro
+theme/assets/app-*.js
+theme/assets/app-*.css
+theme/assets/*.js.map
+dist
