@@ -1,7 +1,8 @@
 import { defineConfig } from 'vite'
 import shopify from 'vite-plugin-shopify'
-import tailwindcss from '@tailwindcss/vite'
 import shopifyClean from '@driver-digital/vite-plugin-shopify-clean'
+import tailwindcss from 'tailwindcss'
+import autoprefixer from 'autoprefixer'
 
 export default defineConfig({
   plugins: [
@@ -9,12 +10,19 @@ export default defineConfig({
       themeRoot: 'theme',
       tunnel: true,
     }),
-    tailwindcss(),
     shopifyClean({
       themeRoot: 'theme',
       // manifestFileName: '.vite/manifest.json',
     })
   ],
+  css: {
+    postcss: {
+      plugins: [
+        tailwindcss,
+        autoprefixer,
+      ],
+    },
+  },
   build: {
     emptyOutDir: false,
     sourcemap: true,

@@ -1,12 +1,13 @@
 # Shopify Vite Dawn Theme
 
-A modern Shopify theme development setup using Dawn theme as the base with Vite and Tailwind CSS v4.
+A modern Shopify theme development setup using Dawn theme as the base with Vite and Tailwind CSS v3.
 
 ## Project Structure
 
 ```
 ├── package.json              # Dependencies and scripts
 ├── vite.config.js            # Vite configuration
+├── tailwind.config.js        # Tailwind CSS configuration
 ├── frontend/                 # Frontend source files
 │   └── entrypoints/          # Entry points for Vite
 │       ├── app.css           # Main CSS file with Tailwind
@@ -25,7 +26,7 @@ A modern Shopify theme development setup using Dawn theme as the base with Vite 
 
 - **Shopify Dawn Theme** - Base theme
 - **Vite** - Build tool and dev server
-- **Tailwind CSS v4** - Utility-first CSS framework
+- **Tailwind CSS v3** - Utility-first CSS framework
 - **vite-plugin-shopify** - Shopify integration for Vite
 - **npm-run-all** - Run multiple npm scripts in parallel/sequence
 
@@ -94,7 +95,7 @@ This builds the assets and pushes the theme to Shopify.
 
 The `vite.config.js` is configured with:
 - Shopify plugin with `themeRoot: 'theme'`
-- Tailwind CSS v4 integration
+- PostCSS with Tailwind CSS v3 and Autoprefixer
 - CORS settings for Shopify domains
 - Source maps for debugging
 
@@ -102,7 +103,20 @@ The `vite.config.js` is configured with:
 
 Main CSS entry point at `frontend/entrypoints/app.css` imports Tailwind:
 ```css
-@import "tailwindcss" source("../..");
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+```
+
+Tailwind configuration in `tailwind.config.js` scans your theme files:
+```js
+export default {
+  content: [
+    './theme/**/*.liquid',
+    './frontend/**/*.{js,ts,css}',
+  ],
+  // ...
+}
 ```
 
 ## Theme Structure

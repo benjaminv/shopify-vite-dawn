@@ -1,5 +1,24 @@
-@import "tailwindcss" source("../..");
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
+/* resolve conflict with Dawn base.css */
+/* Dawn uses flexbox for the grid */
+/* .grid {
+  @apply flex;
+} */
+
+/* thus we need to define the grid display */
+/* .tw-grid {
+  display: grid;
+} */
+
+/* Dawn uses hidden: {display: none !important } */
+/* .tw-hidden {
+  @apply hidden;
+} */
+
+/* other theme styles */
 /* header {
-  @apply bg-pink-100!;
+  @apply !bg-pink-100;
 } */
