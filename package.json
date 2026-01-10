@@ -12,10 +12,11 @@
   "scripts": {
     "dev": "run-p -sr \"shopify:dev -- {@}\" \"vite:dev\" --",
     "deploy": "run-s \"vite:build\" \"shopify:push -- {@}\" --",
-    "pull:content": "shopify theme pull --path theme --store dawn-original --only templates/*.json --only sections/*.json --only locales/*.json --only config/settings_data.json",
+    "build": "vite build",
+    "pull:content": "shopify theme pull --path theme --store dawn-original --only templates/**/*.json --only sections/*.json --only locales/*.json --only config/settings_data.json",
     "pull:all": "shopify theme pull --path theme --store dawn-original",
     "shopify:dev": "shopify theme dev --path theme --store dawn-original",
-    "shopify:push": "shopify theme push --path theme --store dawn-original --allow-live --ignore templates/*.json --ignore sections/*.json --ignore locales/*.json --ignore config/settings_data.json",
+    "shopify:push": "shopify theme push --path theme --store dawn-original --allow-live --ignore templates/**/*.json --ignore sections/*.json --ignore locales/*.json --ignore config/settings_data.json",
     "vite:dev": "vite",
     "vite:build": "vite build"
   }
